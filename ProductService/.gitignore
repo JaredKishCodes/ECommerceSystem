@@ -1,0 +1,19 @@
+# Ignore Visual Studio temp files
+.vs/
+*.user
+*.suo
+
+# Ignore build artifacts
+bin/
+obj/
+
+# Ignore EF Core files
+Migrations/
+
+# Ignore database
+*.mdf
+*.ldf
+
+# Others
+*.vsidx
+*.db
