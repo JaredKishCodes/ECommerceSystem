@@ -6,6 +6,7 @@ namespace ProductService.Domain.Interface
     public interface IProductRepository
     {
         Task<Product> GetProductByIdAsync(Guid id);
+        Task<Product> ReduceStockAsync(Guid productId, int quantity);
         Task<IEnumerable<Product>> GetAllProductsAsync();
         Task AddProductAsync(Product product);
         Task UpdateProductAsync( Product product);

@@ -2,14 +2,19 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
+using ProductService.Application.Interfaces;
+using ProductService.Application.Services;
+
+
 namespace ProductService.Application
 {
     public static class DependencyInjection
     {
         public static IServiceCollection AddApplicationDI(this IServiceCollection services)
         {
-            // Register application services here
-            // Example: services.AddScoped<IProductService, ProductService>();
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly));
+
+            services.AddScoped<IProductService, ProductApplicationService>();
             return services;
         }
     }

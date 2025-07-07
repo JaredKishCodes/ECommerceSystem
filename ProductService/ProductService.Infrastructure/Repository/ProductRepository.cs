@@ -43,6 +43,16 @@ namespace ProductService.Infrastructure.Repository
             return await _dbContext.Products.AnyAsync(p => p.Name.ToLower() == name.ToLower());
         }
 
+        public async Task<Product> ReduceStockAsync(Guid productId, int quantity)
+        {
+            var product = await _dbContext.Products.FindAsync(productId);
+            if (product == null || product.AvailableStock < quantity) {
+                throw new InvalidOperationException("Product not found or insufficient stock.");
+            }
+            product.AvailableStock -= quantity;
+            return product;
+        }
+
         public async Task UpdateProductAsync( Product product)
         {
              _dbContext.Products.Update(product); 

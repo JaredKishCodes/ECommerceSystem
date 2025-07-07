@@ -1,7 +1,8 @@
 ﻿
 using AutoMapper;
 using ProductService.Application.DTOs.Product;
-using ProductService.Domain.Entities;
+
+
 
 namespace ProductService.Application.Mapping
 {
@@ -9,8 +10,8 @@ namespace ProductService.Application.Mapping
     {
         public ProductProfile()
         {
-            CreateMap<Product, ProductDto>().ReverseMap();
-            CreateMap<Product, ProductResponse>().ReverseMap();
+            CreateMap<ProductService.Domain.Entities.Product, ProductDto>().ReverseMap();
+            CreateMap<ProductService.Domain.Entities.Product, ProductResponse>().ReverseMap();
         }
     }
 }
