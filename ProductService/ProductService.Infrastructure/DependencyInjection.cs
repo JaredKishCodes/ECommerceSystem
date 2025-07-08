@@ -12,10 +12,11 @@ namespace ProductService.Infrastructure
     {
         public static IServiceCollection AddInfrastructureDI(this IServiceCollection services, IConfiguration configuration)
         {
-            
+            services.AddScoped<IProductRepository, ProductRepository>();
+
             services.AddDbContext<ProductDbContext>(options =>
             {
-                services.AddScoped<IProductRepository, ProductRepository>();
+               
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
             return services;

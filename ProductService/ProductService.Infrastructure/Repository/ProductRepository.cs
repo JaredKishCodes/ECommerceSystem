@@ -50,6 +50,8 @@ namespace ProductService.Infrastructure.Repository
                 throw new InvalidOperationException("Product not found or insufficient stock.");
             }
             product.AvailableStock -= quantity;
+            await _dbContext.SaveChangesAsync();
+
             return product;
         }
 
