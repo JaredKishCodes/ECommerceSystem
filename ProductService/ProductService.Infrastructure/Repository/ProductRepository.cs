@@ -1,12 +1,13 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using ProductService.Domain.Entities;
 using ProductService.Domain.Interface;
 using ProductService.Infrastructure.Data;
 
 namespace ProductService.Infrastructure.Repository
 {
-    public class ProductRepository(ProductDbContext _dbContext) : IProductRepository
+    public class ProductRepository(ProductDbContext _dbContext,ILogger<ProductRepository> logger) : IProductRepository
     {
         public async Task AddProductAsync(Product product)
         {
@@ -35,8 +36,13 @@ namespace ProductService.Infrastructure.Repository
 
         public async Task<Product> GetProductByIdAsync(Guid id)
         {
+            logger.LogInformation($"Getting productid:{id}");
+
             return await _dbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
+
+            
         }
+
 
         public async Task<bool> ProductNameExistsAsync(string name)
         {

@@ -1,0 +1,33 @@
+[
+  {
+    "ContainingType": "OrderService.API.Controllers.OrderController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/Order/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderRequest",
+        "Type": "OrderService.Application.DTOs.OrderRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "OrderService.Application.DTOs.ApiResponse\u00601[[OrderService.Application.DTOs.OrderResponse, OrderService.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

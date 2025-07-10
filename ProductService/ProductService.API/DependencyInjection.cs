@@ -9,6 +9,8 @@ namespace ProductService.API
         {
             services.AddApplicationDI().
                 AddInfrastructureDI(configuration);
+            services.AddGrpc();
+            
 
             return services;
         }

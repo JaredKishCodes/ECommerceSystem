@@ -1,0 +1,62 @@
+# Ignore user-specific files and IDE settings
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code settings (optional)
+.vscode/
+
+# Ignore build results
+bin/
+obj/
+
+# Ignore Rider IDE files
+.idea/
+
+# Ignore database and EF Core artifacts
+*.db
+*.mdf
+*.ldf
+*.sqlite
+*.bak
+
+# Ignore Entity Framework migrations if generated dynamically
+Migrations/
+
+# Ignore temporary files
+*.tmp
+*.log
+*.vsidx
+
+# Ignore test results
+TestResults/
+
+# Ignore coverage reports
+coverage/
+*.coverage
+*.coveragexml
+
+# Ignore NuGet packages and tools
+*.nupkg
+packages/
+.nuget/
+
+# Ignore generated files from gRPC
+**/obj/**/*.cs
+**/GrpcContracts/*.cs
+**/Protos/*.cs
+
+# Ignore Docker artifacts (optional)
+docker-compose.override.yml
+*.dockerfile
+
+# Ignore environment-specific files
+.env
+*.secret
+secrets.json
+
+# Ignore ReSharper cache
+_ReSharper*/
+*.DotSettings.user
