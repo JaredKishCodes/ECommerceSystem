@@ -1,20 +1,60 @@
-# Ignore build output and VS stuff
+# ========== User-specific files and IDE settings ==========
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# ========== Build output ==========
+bin/
+obj/
 **/bin/
 **/obj/
-**/.vs/
-**/*.user
-**/*.csproj.user
 
-# Ignore gRPC auto-generated files
-**/GrpcContracts/
-**/*.protodep
-**/Protos/*.cs
-
-# Ignore debug-specific files
+# ========== Debug and runtime artifacts ==========
 *.pdb
 *.deps.json
 *.runtimeconfig.json
 
-# Ignore Rider, VSCode settings (optional)
-.idea/
-.vscode/
+# ========== EF Core & database artifacts ==========
+*.db
+*.mdf
+*.ldf
+*.sqlite
+*.bak
+Migrations/
+
+# ========== Temporary and log files ==========
+*.tmp
+*.log
+*.vsidx
+
+# ========== Test results and coverage reports ==========
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# ========== NuGet packages and tools ==========
+*.nupkg
+packages/
+.nuget/
+
+# ========== gRPC auto-generated files ==========
+**/*.protodep
+**/GrpcContracts/
+**/GrpcContracts/*.cs
+**/Protos/*.cs
+**/obj/**/*.cs
+
+# ========== Docker artifacts ==========
+docker-compose.override.yml
+*.dockerfile
+
+# ========== Environment-specific secrets ==========
+.env
+*.secret
+secrets.json
