@@ -43,16 +43,7 @@ coverage/
 packages/
 .nuget/
 
-# ========== gRPC auto-generated files ==========
-**/*.protodep
-**/GrpcContracts/
-**/GrpcContracts/*.cs
-**/Protos/*.cs
-**/obj/**/*.cs
 
-# ========== Docker artifacts ==========
-docker-compose.override.yml
-*.dockerfile
 
 # ========== Environment-specific secrets ==========
 .env
