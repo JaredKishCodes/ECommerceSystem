@@ -75,6 +75,10 @@
               "target": "Package",
               "version": "[9.0.6, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[9.0.3, )"
@@ -286,9 +290,6 @@
               },
               "C:\\Users\\kidos\\Documents\\Code\\Backend\\ECommerceSystem\\OrderService\\OrderService.Domain\\OrderService.Domain.csproj": {
                 "projectPath": "C:\\Users\\kidos\\Documents\\Code\\Backend\\ECommerceSystem\\OrderService\\OrderService.Domain\\OrderService.Domain.csproj"
-              },
-              "C:\\Users\\kidos\\Documents\\Code\\Backend\\ECommerceSystem\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\kidos\\Documents\\Code\\Backend\\ECommerceSystem\\Shared\\Shared.csproj"
               }
             }
           }

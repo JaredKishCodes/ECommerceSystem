@@ -12,12 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\Shared.csproj" />
-    <ProjectReference Include="..\OrderService.Domain\OrderService.Domain.csproj" />
+	  <ProjectReference Include="..\..\Shared\Shared.csproj" />
+	  <ProjectReference Include="..\OrderService.Domain\OrderService.Domain.csproj" />
+	  <Protobuf Include="..\Shared\Protos\product.proto" GrpcServices="Client" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Order\Queries\" />
   </ItemGroup>
 
+	
 </Project>

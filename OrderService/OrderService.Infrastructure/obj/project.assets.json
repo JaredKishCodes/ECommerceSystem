@@ -4678,8 +4678,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.6",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 9.0.7",
       "OrderService.Application >= 1.0.0",
-      "OrderService.Domain >= 1.0.0",
-      "Shared >= 1.0.0"
+      "OrderService.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4720,9 +4719,6 @@
             },
             "C:\\Users\\kidos\\Documents\\Code\\Backend\\ECommerceSystem\\OrderService\\OrderService.Domain\\OrderService.Domain.csproj": {
               "projectPath": "C:\\Users\\kidos\\Documents\\Code\\Backend\\ECommerceSystem\\OrderService\\OrderService.Domain\\OrderService.Domain.csproj"
-            },
-            "C:\\Users\\kidos\\Documents\\Code\\Backend\\ECommerceSystem\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\kidos\\Documents\\Code\\Backend\\ECommerceSystem\\Shared\\Shared.csproj"
             }
           }
         }
