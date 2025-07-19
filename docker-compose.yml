@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  orderservice:
+    build:
+      context: .
+      dockerfile: Dockerfiles/OrderService.Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=OrderServiceDB;User=sa;Password=Your_password123;Encrypt=True;TrustServerCertificate=True;
+    depends_on:
+      - sqlserver
+
+  productservice:
+    build:
+      context: .
+      dockerfile: Dockerfiles/ProductService.Dockerfile
+    ports:
+      - "5002:5002"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=ProductServiceDB;User=sa;Password=Your_password123;Encrypt=True;TrustServerCertificate=True;
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your_password123
+    volumes:
+      - sqlvolume:/var/opt/mssql
+
+volumes:
+  sqlvolume:

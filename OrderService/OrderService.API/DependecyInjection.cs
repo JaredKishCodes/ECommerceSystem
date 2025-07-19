@@ -13,7 +13,7 @@ namespace OrderService.API
 
             services.AddGrpcClient<ProductGrpc.ProductGrpcClient>(o =>
             {
-                o.Address = new Uri("https://localhost:7168"); 
+                o.Address = new Uri("http://productservice"); 
             });
             return services;
         }

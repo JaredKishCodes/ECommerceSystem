@@ -1,0 +1,32 @@
+# Ignore build artifacts
+**/bin/
+**/obj/
+**/publish/
+
+# Ignore user-specific files
+*.user
+*.suo
+
+# Ignore IDE and editor settings
+.vscode/
+.vs/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and temp files
+*.log
+*.tmp
+*.db
+
+# Ignore test output
+TestResults/
+
+# Ignore environment and secrets
+.env
+secrets.json
+
+# Ignore node_modules if you have frontend
+**/node_modules/

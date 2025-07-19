@@ -9,8 +9,9 @@ builder.Services.AddSwaggerGen();
 
 // Controllers and gRPC
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
 builder.Services.AddApiDI(builder.Configuration);
+builder.WebHost.UseUrls("http://0.0.0.0:5002");
+
 
 // 👇 Add gRPC and gRPC-Web
 
@@ -26,7 +27,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // 👇 Optional: comment out if testing via HTTP (e.g. Postman)
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseRouting();
 
