@@ -21,6 +21,7 @@ namespace OrderService.API.Controllers
             try
             {
                 var command = new AddOrderCommand(orderRequest.ProductId, orderRequest.Quantity);
+                
                 var result = await sender.Send(command);
 
                 return Ok(ApiResponse<OrderResponse>.SuccessResponse(result, "Order created successfully."));

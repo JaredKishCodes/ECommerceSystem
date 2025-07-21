@@ -4589,6 +4589,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Grpc.Net.Client >= 2.71.0",
       "Grpc.Net.ClientFactory >= 2.71.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
@@ -4660,6 +4661,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Grpc.Net.Client": {
+            "target": "Package",
+            "version": "[2.71.0, )"
+          },
           "Grpc.Net.ClientFactory": {
             "target": "Package",
             "version": "[2.71.0, )"

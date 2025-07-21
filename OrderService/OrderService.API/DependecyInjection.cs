@@ -1,6 +1,10 @@
 ﻿using OrderService.Application;
 using OrderService.Infrastructure;
 using ProductService.Grpc;
+using System.Net;
+using System.Net.Http;
+using Grpc.Net.Client;
+
 
 namespace OrderService.API
 {
@@ -11,11 +15,14 @@ namespace OrderService.API
             services.AddOrderServiceApplication()
                 .AddOrderServiceInfrastructure(config);
 
-            services.AddGrpcClient<ProductGrpc.ProductGrpcClient>(o =>
+            services.AddGrpcClient<ProductGrpc.ProductGrpcClient>(options =>
             {
-                o.Address = new Uri("http://productservice"); 
+                options.Address = new Uri("http://productservice:5002");
             });
-            return services;
+
+
+
+            return services; 
         }
     }
 }

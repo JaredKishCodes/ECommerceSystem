@@ -61,6 +61,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.71.0, )"
+            },
             "Grpc.Net.ClientFactory": {
               "target": "Package",
               "version": "[2.71.0, )"

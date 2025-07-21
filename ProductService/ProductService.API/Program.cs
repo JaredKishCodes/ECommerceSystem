@@ -1,48 +1,60 @@
-﻿using ProductService.API;
+﻿using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.EntityFrameworkCore;
+using ProductService.API;
 using ProductService.Application.Services;
+using ProductService.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Swagger setup
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Controllers and gRPC
 builder.Services.AddControllers();
 builder.Services.AddApiDI(builder.Configuration);
+builder.Services.AddGrpc(); // 👈 Add this line for gRPC support
+
+// Configure Kestrel for both HTTP/1.1 and HTTP/2
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5002, listenOptions =>
+    {
+        listenOptions.Protocols = HttpProtocols.Http1AndHttp2; // ✅ FIX
+    });
+});
+
+// Docker/host binding
 builder.WebHost.UseUrls("http://0.0.0.0:5002");
-
-
-// 👇 Add gRPC and gRPC-Web
-
-
 
 var app = builder.Build();
 
-// Swagger UI for dev
+// Swagger UI
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// 👇 Optional: comment out if testing via HTTP (e.g. Postman)
-//app.UseHttpsRedirection();
+// DB Migration
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ProductDbContext>();
+    dbContext.Database.Migrate();
+}
 
+// Middleware
 app.UseRouting();
 
-
-app.UseGrpcWeb(); 
-
+app.UseGrpcWeb();
 app.UseAuthorization();
 
-// 👇 gRPC endpoint with gRPC-Web enabled
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapGrpcService<ProductGrpcService>()
-             .EnableGrpcWeb();
+             .EnableGrpcWeb(); // gRPC with gRPC-Web support
 
-    endpoints.MapControllers(); // Also map your API controllers
+    endpoints.MapControllers(); // REST API for Swagger
 });
 
 app.Run();
