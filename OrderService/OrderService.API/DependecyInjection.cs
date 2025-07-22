@@ -4,6 +4,7 @@ using ProductService.Grpc;
 using System.Net;
 using System.Net.Http;
 using Grpc.Net.Client;
+using System.Net.Security;
 
 
 namespace OrderService.API
@@ -18,7 +19,16 @@ namespace OrderService.API
             services.AddGrpcClient<ProductGrpc.ProductGrpcClient>(options =>
             {
                 options.Address = new Uri("http://productservice:5002");
+            })
+            .ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
+            {
+                SslOptions = new SslClientAuthenticationOptions
+                {
+                    RemoteCertificateValidationCallback = (sender, certificate, chain, errors) => true
+                },
+                EnableMultipleHttp2Connections = true
             });
+
 
 
 

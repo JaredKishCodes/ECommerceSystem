@@ -20,12 +20,10 @@ builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenAnyIP(5002, listenOptions =>
     {
-        listenOptions.Protocols = HttpProtocols.Http1AndHttp2; // ✅ FIX
+
+        listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
     });
 });
-
-// Docker/host binding
-builder.WebHost.UseUrls("http://0.0.0.0:5002");
 
 var app = builder.Build();
 
