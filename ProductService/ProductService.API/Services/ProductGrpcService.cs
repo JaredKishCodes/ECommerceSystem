@@ -21,7 +21,8 @@ namespace ProductService.Application.Services
         }
 
         public override async Task<ProductReply> GetProductById(ProductRequest request, ServerCallContext context)
-        {
+        {   
+            
             var guid = Guid.Parse(request.Id);
             if (guid == Guid.Empty)
             {

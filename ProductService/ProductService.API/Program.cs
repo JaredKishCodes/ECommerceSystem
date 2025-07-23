@@ -22,6 +22,7 @@ builder.WebHost.ConfigureKestrel(options =>
     {
 
         listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
+        listenOptions.UseConnectionLogging();
     });
 });
 

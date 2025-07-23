@@ -4,6 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableHttp2WithoutTls>true</EnableHttp2WithoutTls>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -17,6 +18,8 @@
 		</PackageReference>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="8.0.0" />
 	</ItemGroup>
+	
+	
 
 	<ItemGroup>
 		<ProjectReference Include="..\ProductService.Application\ProductService.Application.csproj" />

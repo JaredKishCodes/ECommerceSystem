@@ -9,6 +9,10 @@ services:
       - "5001:5001"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_Kestrel__EndpointDefaults__Protocols=Http2
+      - ASPNETCORE_URLS=http://0.0.0.0:5001  # (or 5001 for OrderService)
+      - ASPNETCORE_HTTP_PORTS=
+      - ASPNETCORE_HTTPS_PORTS=
     depends_on:
       - sqlserver
 
@@ -20,6 +24,10 @@ services:
       - "5002:5002"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_Kestrel__EndpointDefaults__Protocols=Http2
+      - ASPNETCORE_URLS=http://0.0.0.0:5002  # (or 5001 for ProductService)
+      - ASPNETCORE_HTTP_PORTS=
+      - ASPNETCORE_HTTPS_PORTS=
     depends_on:
       - sqlserver
 

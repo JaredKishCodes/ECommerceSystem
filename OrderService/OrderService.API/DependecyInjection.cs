@@ -1,11 +1,8 @@
 ﻿using OrderService.Application;
 using OrderService.Infrastructure;
 using ProductService.Grpc;
-using System.Net;
+using Grpc.Core;
 using System.Net.Http;
-using Grpc.Net.Client;
-using System.Net.Security;
-
 
 namespace OrderService.API
 {
@@ -14,25 +11,22 @@ namespace OrderService.API
         public static IServiceCollection AddOrderServiceAPI(this IServiceCollection services, IConfiguration config)
         {
             services.AddOrderServiceApplication()
-                .AddOrderServiceInfrastructure(config);
+                    .AddOrderServiceInfrastructure(config);
 
             services.AddGrpcClient<ProductGrpc.ProductGrpcClient>(options =>
             {
-                options.Address = new Uri("http://productservice:5002");
+                options.Address = new Uri("http://productservice:5002"); // Use http, not https
             })
             .ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
             {
-                SslOptions = new SslClientAuthenticationOptions
-                {
-                    RemoteCertificateValidationCallback = (sender, certificate, chain, errors) => true
-                },
-                EnableMultipleHttp2Connections = true
+                EnableMultipleHttp2Connections = true,
+            })
+            .ConfigureChannel(options =>
+            {
+                options.Credentials = ChannelCredentials.Insecure; // Insecure for HTTP
             });
 
-
-
-
-            return services; 
+            return services;
         }
     }
 }

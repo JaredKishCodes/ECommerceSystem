@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <UserSecretsId>ab4941ce-59b6-449f-bae8-542a265c0add</UserSecretsId>
+	  <EnableHttp2WithoutTls>true</EnableHttp2WithoutTls>
   </PropertyGroup>
 
   <ItemGroup>
